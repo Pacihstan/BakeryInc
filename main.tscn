@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b52wha6808opi"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_ema31"]
+[ext_resource type="PackedScene" uid="uid://x8bfyvsurcja" path="res://database_interface.tscn" id="2_ceys2"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_ema31")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_right = 3356.0
+offset_bottom = 1555.0
+text = "test"
+
+[node name="dataabse_interface" parent="." instance=ExtResource("2_ceys2")]

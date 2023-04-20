@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://x8bfyvsurcja"]
+
+[ext_resource type="Script" path="res://database_interface.cs" id="1_14io2"]
+
+[node name="dataabse_interface" type="Node"]
+script = ExtResource("1_14io2")
