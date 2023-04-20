@@ -7,8 +7,7 @@ using System.Collections.Generic;
 
 public partial class database_interface : Node
 {
-	static string connectionString = "Data Source=SILVER;Initial Catalog=BankDB;Integrated Security=True;TrustServerCertificate=True";
-	SqlConnection conn = new SqlConnection(connectionString);
+	SqlConnection conn;
 	SqlCommand currentSqlCommand;
 	SqlDataReader currentSqlDataReader;
 	TextEdit printingGrounds;
@@ -16,14 +15,20 @@ public partial class database_interface : Node
 
 	public override void _Ready()
 	{
-		conn.Open();
-		currentSqlCommand = conn.CreateCommand();
 		printingGrounds = GetTree().Root.GetNode<TextEdit>("Main/TextEdit");
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{ }
+	public void configureConnection(string connectionStringInput)
+	{
+		conn = new SqlConnection(connectionStringInput);
+		conn.Open();
+		currentSqlCommand = conn.CreateCommand(); ;
+	}
+
+	public void closeConnection()
+	{
+		conn.Close();
+	}
 
 	public void handleQuery(string queryString)
 	{

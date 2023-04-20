@@ -8,5 +8,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$dataabse_interface.handleQuery("SELECT * FROM Accounts")
+	$database_interface.configureConnection("Data Source=SILVER;Initial Catalog=BankDB;Integrated Security=True;TrustServerCertificate=True")
+	$database_interface.handleQuery("SELECT * FROM Accounts")
+	$database_interface.closeConnection()
 	$TextEdit.text += str(currentData)

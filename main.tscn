@@ -11,4 +11,4 @@ offset_right = 3356.0
 offset_bottom = 1555.0
 text = "test"
 
-[node name="dataabse_interface" parent="." instance=ExtResource("2_ceys2")]
+[node name="database_interface" parent="." instance=ExtResource("2_ceys2")]
