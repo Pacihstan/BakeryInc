@@ -10,7 +10,7 @@ border_color = Color(0, 0.54902, 0.501961, 1)
 
 [sub_resource type="Theme" id="Theme_53hyt"]
 
-[node name="Window" type="Window"]
+[node name="LoginScreenRoot" type="Window"]
 transparent_bg = true
 title = "Login"
 size = Vector2i(450, 300)
@@ -35,7 +35,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(250, 250)
 
-[node name="RichTextLabel" type="Label" parent="VBoxContainer"]
+[node name="WelcomeLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = SubResource("Theme_53hyt")
@@ -44,7 +44,7 @@ Welcome to BAKERY INC."
 horizontal_alignment = 1
 text_direction = 1
 
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
+[node name="UsernameEntry" type="LineEdit" parent="VBoxContainer"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -54,7 +54,7 @@ expand_to_text_length = true
 caret_blink = true
 caret_blink_interval = 0.5
 
-[node name="LineEdit2" type="LineEdit" parent="VBoxContainer"]
+[node name="PasswordEntry" type="LineEdit" parent="VBoxContainer"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -63,18 +63,18 @@ alignment = 1
 caret_blink = true
 caret_blink_interval = 0.5
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="LoginButton" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Login"
 
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+[node name="PanelSpacer" type="PanelContainer" parent="VBoxContainer"]
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
-[node name="RichTextLabel2" type="Label" parent="VBoxContainer"]
+[node name="NoAccountQuestion" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -82,7 +82,7 @@ text = "Don't have an account?"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
+[node name="SignUPButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
