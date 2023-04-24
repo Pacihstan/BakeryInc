@@ -1,14 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://b52wha6808opi"]
+[gd_scene load_steps=4 format=3 uid="uid://cn5ykrpaafi1b"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ema31"]
 [ext_resource type="PackedScene" uid="uid://x8bfyvsurcja" path="res://database_interface.tscn" id="2_ceys2"]
+[ext_resource type="PackedScene" uid="uid://dewduv03r87p6" path="res://LoginScreen/LoginScreen.tscn" id="3_yo2u1"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ema31")
 
 [node name="TextEdit" type="TextEdit" parent="."]
-offset_right = 3356.0
-offset_bottom = 1555.0
+offset_left = 672.0
+offset_top = 79.0
+offset_right = 1160.0
+offset_bottom = 498.0
 text = "test"
+wrap_mode = 1
 
 [node name="database_interface" parent="." instance=ExtResource("2_ceys2")]
+
+[node name="VBoxContainer" parent="." instance=ExtResource("3_yo2u1")]
+position = Vector2i(150, 150)
