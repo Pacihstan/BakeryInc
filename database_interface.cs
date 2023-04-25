@@ -22,7 +22,6 @@ public partial class database_interface : Node
 	{
 		conn = new SqlConnection(connectionStringInput);
 		conn.Open();
-		currentSqlCommand = conn.CreateCommand(); ;
 	}
 
 	public void closeConnection()
@@ -32,17 +31,20 @@ public partial class database_interface : Node
 
 	public void handleQuery(string queryString)
 	{
+		conn.Close();
+		conn.Open();
+		currentSqlCommand = conn.CreateCommand();
 		currentSqlCommand.CommandText = queryString;
 		currentSqlDataReader = currentSqlCommand.ExecuteReader();
 		
-		currentSqlDataReader.Read();
 		Godot.Variant matrix = new Godot.Collections.Array<string>();
-		foreach (IDataRecord record in currentSqlDataReader)
+		while(currentSqlDataReader.Read())
 		{
+			
 			Godot.Variant row = new Godot.Collections.Array();
-			for (int i = 0; i < record.FieldCount; i++)
+			for (int i = 0; i < currentSqlDataReader.FieldCount; i++)
 			{
-				((Godot.Collections.Array)row).Add(record[i].ToString());
+				((Godot.Collections.Array)row).Add(currentSqlDataReader[i].ToString());
 			}
 			((Godot.Collections.Array)matrix).Add(row);
 			GetTree().Root.GetNode<Node2D>("Main").Set("currentData", matrix);

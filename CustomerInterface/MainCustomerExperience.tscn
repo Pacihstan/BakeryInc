@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://dfyaci53qpdsj"]
 
-[ext_resource type="Texture2D" uid="uid://c5j4kc1vhnt6n" path="res://userAcct.png" id="1_kk6bq"]
-[ext_resource type="Texture2D" uid="uid://beld1tcshsqsl" path="res://questionmark.png" id="2_b3qsy"]
+[ext_resource type="Texture2D" uid="uid://dkfru23gefj7l" path="res://userAcct.png" id="1_kk6bq"]
+[ext_resource type="Texture2D" uid="uid://di1kg0g1xray8" path="res://questionmark.png" id="2_b3qsy"]
 [ext_resource type="PackedScene" uid="uid://djx7e0321ntr5" path="res://GUIRow/ProductEntry.tscn" id="3_ehnk6"]
-[ext_resource type="Texture2D" uid="uid://c7v4psihbhnnp" path="res://cart.png" id="3_t25kg"]
+[ext_resource type="Texture2D" uid="uid://dwnoxln3uqoi1" path="res://cart.png" id="3_t25kg"]
 [ext_resource type="PackedScene" uid="uid://dlahi4m282sla" path="res://GUIRow/CartProductEntry.tscn" id="5_rahi6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8tc2p"]
@@ -12,7 +12,7 @@ bg_color = Color(0.631373, 0.631373, 0.631373, 1)
 [node name="MainCustomerExperience" type="HBoxContainer"]
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 199.0
+offset_bottom = 565.0
 grow_horizontal = 2
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="."]

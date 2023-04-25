@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dlahi4m282sla"]
 
-[ext_resource type="Texture2D" uid="uid://c5j4kc1vhnt6n" path="res://userAcct.png" id="1_0c121"]
-[ext_resource type="Texture2D" uid="uid://c7v4psihbhnnp" path="res://cart.png" id="2_g8upm"]
+[ext_resource type="Texture2D" uid="uid://dkfru23gefj7l" path="res://userAcct.png" id="1_0c121"]
+[ext_resource type="Texture2D" uid="uid://dwnoxln3uqoi1" path="res://cart.png" id="2_g8upm"]
 
 [node name="VBoxContainer" type="VBoxContainer"]
 size_flags_horizontal = 3
