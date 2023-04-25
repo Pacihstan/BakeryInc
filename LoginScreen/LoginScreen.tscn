@@ -1,0 +1,96 @@
+[gd_scene load_steps=4 format=3 uid="uid://dewduv03r87p6"]
+
+[ext_resource type="Script" path="res://LoginScreen/LoginScreenScript.gd" id="1_ixn22"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_60omt"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0.54902, 0.501961, 1)
+
+[sub_resource type="Theme" id="Theme_53hyt"]
+
+[node name="LoginScreenRoot" type="Window"]
+transparent_bg = true
+title = "Login"
+size = Vector2i(450, 300)
+wrap_controls = true
+transient = true
+exclusive = true
+unresizable = true
+always_on_top = true
+theme_override_styles/embedded_border = SubResource("StyleBoxFlat_60omt")
+script = ExtResource("1_ixn22")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -150.0
+offset_right = 250.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(250, 250)
+
+[node name="WelcomeLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_53hyt")
+text = "
+Welcome to BAKERY INC."
+horizontal_alignment = 1
+text_direction = 1
+
+[node name="UsernameEntry" type="LineEdit" parent="VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+placeholder_text = "Username"
+alignment = 1
+expand_to_text_length = true
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="PasswordEntry" type="LineEdit" parent="VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+placeholder_text = "Password"
+alignment = 1
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="LoginButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Login"
+
+[node name="PanelSpacer" type="PanelContainer" parent="VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="NoAccountQuestion" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Don't have an account?"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="SignUPButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Sign Up"
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
+[connection signal="pressed" from="VBoxContainer/LoginButton" to="." method="_on_login_button_pressed"]

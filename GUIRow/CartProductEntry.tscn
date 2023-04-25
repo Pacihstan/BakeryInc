@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlahi4m282sla"]
+
+[ext_resource type="Texture2D" uid="uid://dkfru23gefj7l" path="res://userAcct.png" id="1_0c121"]
+[ext_resource type="Texture2D" uid="uid://dwnoxln3uqoi1" path="res://cart.png" id="2_g8upm"]
+
+[node name="VBoxContainer" type="VBoxContainer"]
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "productName"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Sprite2D" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+texture = ExtResource("1_0c121")
+
+[node name="SpinBox" type="SpinBox" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="RemoveButton" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_g8upm")
