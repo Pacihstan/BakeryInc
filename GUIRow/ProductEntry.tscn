@@ -1,28 +1,58 @@
-[gd_scene load_steps=3 format=3 uid="uid://djx7e0321ntr5"]
+[gd_scene load_steps=5 format=3 uid="uid://djx7e0321ntr5"]
 
 [ext_resource type="Texture2D" uid="uid://dkfru23gefj7l" path="res://userAcct.png" id="1_jppo8"]
 [ext_resource type="Texture2D" uid="uid://dwnoxln3uqoi1" path="res://cart.png" id="2_siw03"]
 
-[node name="ProductEntry" type="HBoxContainer"]
-offset_right = 566.0
-offset_bottom = 50.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q3hwt"]
+bg_color = Color(0.34902, 0.686275, 0.443137, 1)
+corner_detail = 5
+expand_margin_right = 9.0
+
+[sub_resource type="Theme" id="Theme_c3cow"]
+HBoxContainer/constants/separation = 4
+
+[node name="Panel" type="Panel"]
+custom_minimum_size = Vector2(0, 70)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_q3hwt")
 
-[node name="Sprite2D" type="TextureRect" parent="."]
+[node name="ProductEntry" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_c3cow")
+theme_override_constants/separation = 10
+
+[node name="Sprite2D" type="TextureRect" parent="ProductEntry"]
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
-size_flags_horizontal = 2
+size_flags_horizontal = 0
 texture = ExtResource("1_jppo8")
+stretch_mode = 3
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="ProductEntry"]
 layout_mode = 2
 size_flags_horizontal = 6
 text = "productName"
 
-[node name="SpinBox" type="SpinBox" parent="."]
+[node name="SpinBox" type="SpinBox" parent="ProductEntry"]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-size_flags_horizontal = 10
+size_flags_horizontal = 8
+size_flags_vertical = 4
+min_value = 1.0
+value = 1.0
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="TextureButton" type="TextureButton" parent="ProductEntry"]
 layout_mode = 2
 size_flags_horizontal = 8
 texture_normal = ExtResource("2_siw03")
+stretch_mode = 3

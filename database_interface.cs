@@ -40,7 +40,6 @@ public partial class database_interface : Node
 		Godot.Variant matrix = new Godot.Collections.Array<string>();
 		while(currentSqlDataReader.Read())
 		{
-			
 			Godot.Variant row = new Godot.Collections.Array();
 			for (int i = 0; i < currentSqlDataReader.FieldCount; i++)
 			{
