@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://djx7e0321ntr5"]
+[gd_scene load_steps=6 format=3 uid="uid://djx7e0321ntr5"]
 
-[ext_resource type="Texture2D" uid="uid://c0m6lbn3ty86" path="res://userAcct.png" id="1_jppo8"]
-[ext_resource type="Texture2D" uid="uid://c015cyyqjf731" path="res://cart.png" id="2_siw03"]
+[ext_resource type="Texture2D" uid="uid://eb0ahghta6bo" path="res://Icons/breadIcon.png" id="1_lu2rj"]
+[ext_resource type="Texture2D" uid="uid://d050di6kbkvlf" path="res://Icons/add-to-carticon.png" id="2_kkqqt"]
+[ext_resource type="Texture2D" uid="uid://do7u6o3i31un8" path="res://Icons/add-to-carticonpressed.png" id="3_fvw8x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q3hwt"]
 bg_color = Color(0.34902, 0.686275, 0.443137, 1)
@@ -13,11 +14,11 @@ HBoxContainer/constants/separation = 4
 
 [node name="Panel" type="Panel"]
 custom_minimum_size = Vector2(0, 70)
-anchors_preset = 10
-anchor_right = 1.0
+offset_bottom = 70.0
 grow_horizontal = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_q3hwt")
+metadata/productId = 0
 
 [node name="ProductEntry" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(0, 70)
@@ -35,8 +36,9 @@ theme_override_constants/separation = 10
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("1_jppo8")
+texture = ExtResource("1_lu2rj")
 stretch_mode = 3
+metadata/Source = "<a href=\"https://www.flaticon.com/free-icons/bread\" title=\"bread icons\">Bread icons created by Freepik - Flaticon</a>"
 
 [node name="Label" type="Label" parent="ProductEntry"]
 layout_mode = 2
@@ -54,5 +56,7 @@ value = 1.0
 [node name="TextureButton" type="TextureButton" parent="ProductEntry"]
 layout_mode = 2
 size_flags_horizontal = 8
-texture_normal = ExtResource("2_siw03")
+texture_normal = ExtResource("2_kkqqt")
+texture_pressed = ExtResource("3_fvw8x")
 stretch_mode = 3
+metadata/Source = "<a href=\"https://www.flaticon.com/free-icons/add-to-cart\" title=\"add to cart icons\">Add to cart icons created by Freepik - Flaticon</a>"

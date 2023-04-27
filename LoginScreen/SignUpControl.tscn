@@ -1,0 +1,73 @@
+[gd_scene load_steps=2 format=3 uid="uid://yqg24nqiiap2"]
+
+[ext_resource type="Script" path="res://LoginScreen/SignUpControl.gd" id="1_rxgty"]
+
+[node name="VBoxContainer" type="VBoxContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -150.0
+offset_right = 250.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(250, 250)
+script = ExtResource("1_rxgty")
+
+[node name="WelcomeLabel" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "
+Sign Up"
+horizontal_alignment = 1
+text_direction = 1
+
+[node name="NameEntry" type="LineEdit" parent="."]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+placeholder_text = "Name"
+alignment = 1
+expand_to_text_length = true
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="PasswordEntry" type="LineEdit" parent="."]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+placeholder_text = "Password"
+alignment = 1
+secret = true
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="PhoneEntry" type="LineEdit" parent="."]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+placeholder_text = "Phone Number"
+alignment = 1
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="AddressEntry" type="LineEdit" parent="."]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+placeholder_text = "Address"
+alignment = 1
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="SignUpButton" type="Button" parent="."]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Sign Up"
+
+[connection signal="pressed" from="SignUpButton" to="." method="_on_sign_up_button_pressed"]

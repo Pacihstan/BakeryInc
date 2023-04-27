@@ -1,29 +1,57 @@
-[gd_scene load_steps=3 format=3 uid="uid://dlahi4m282sla"]
+[gd_scene load_steps=5 format=3 uid="uid://dlahi4m282sla"]
 
-[ext_resource type="Texture2D" uid="uid://dkfru23gefj7l" path="res://userAcct.png" id="1_0c121"]
-[ext_resource type="Texture2D" uid="uid://dwnoxln3uqoi1" path="res://cart.png" id="2_g8upm"]
+[ext_resource type="Texture2D" uid="uid://eb0ahghta6bo" path="res://Icons/breadIcon.png" id="1_1tqkh"]
+[ext_resource type="Texture2D" uid="uid://e656b3t12oyo" path="res://Icons/remove-from-carticon.png" id="2_sr42j"]
+[ext_resource type="Texture2D" uid="uid://ee2bbv5sr2di" path="res://Icons/remove-from-carticonpressed.png" id="3_wwju5"]
 
-[node name="VBoxContainer" type="VBoxContainer"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qfvdj"]
+bg_color = Color(0.34902, 0.686275, 0.443137, 1)
+corner_detail = 5
+expand_margin_right = 9.0
+
+[node name="Panel" type="Panel"]
+custom_minimum_size = Vector2(0, 100)
+offset_top = 84.0
+offset_right = 191.0
+offset_bottom = 154.0
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_qfvdj")
+metadata/productId = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 text = "productName"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
 
-[node name="Sprite2D" type="TextureRect" parent="HBoxContainer"]
+[node name="Sprite2D" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("1_1tqkh")
+stretch_mode = 3
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_horizontal = 6
-texture = ExtResource("1_0c121")
+size_flags_vertical = 4
 
-[node name="SpinBox" type="SpinBox" parent="HBoxContainer"]
+[node name="RemoveButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
-size_flags_horizontal = 6
-
-[node name="RemoveButton" type="TextureButton" parent="HBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("2_g8upm")
+texture_normal = ExtResource("2_sr42j")
+texture_pressed = ExtResource("3_wwju5")
+stretch_mode = 3
+metadata/Source = "<a href=\"https://www.flaticon.com/free-icons/remove-from-cart\" title=\"remove from cart icons\">Remove from cart icons created by Freepik - Flaticon</a>"
