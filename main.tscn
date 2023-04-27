@@ -7,10 +7,11 @@
 script = ExtResource("1_ema31")
 
 [node name="TextEdit" type="TextEdit" parent="."]
-offset_left = 690.0
-offset_top = 652.0
-offset_right = 1178.0
-offset_bottom = 1071.0
+visible = false
+offset_left = 247.0
+offset_top = 212.0
+offset_right = 735.0
+offset_bottom = 631.0
 text = "test"
 wrap_mode = 1
 

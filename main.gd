@@ -20,7 +20,12 @@ func _process(delta):
 func csharpPrint(printInput):
 	print(printInput)
 
-func loginComplete():
-	var mainInterface = load("res://CustomerInterface/MainCustomerExperience.tscn").instantiate()
-	mainInterface.position = Vector2(get_viewport_rect().size.x / 2, 0)
+func loginComplete(userType):
+	print(str("res://", userType, "Interface/Main", userType, "Experience.tscn"))
+	var mainInterface = load(str("res://", userType, "Interface/Main", userType, "Interface.tscn")).instantiate()
+	mainInterface.size = Vector2(get_viewport_rect().size)
+	mainInterface.position = Vector2(0,0)
 	add_child(mainInterface)
+	
+func logoutButtonPressed():
+	print($mainInterface.size)

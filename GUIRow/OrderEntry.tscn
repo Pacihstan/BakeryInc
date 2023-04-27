@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://dagiom66lmkhv"]
+
+[ext_resource type="Texture2D" uid="uid://dkfru23gefj7l" path="res://userAcct.png" id="1_ls2v7"]
+[ext_resource type="Texture2D" uid="uid://dwnoxln3uqoi1" path="res://cart.png" id="2_kgii5"]
+
+[node name="ProductEntry" type="HBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+offset_right = 566.0
+offset_bottom = 50.0
+size_flags_horizontal = 3
+
+[node name="Sprite2D" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("1_ls2v7")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "productName"
+
+[node name="SpinBox" type="SpinBox" parent="."]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 4
+min_value = 1.0
+value = 1.0
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource("2_kgii5")

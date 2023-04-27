@@ -1,0 +1,157 @@
+[gd_scene load_steps=6 format=3 uid="uid://g741wul0ijrq"]
+
+[ext_resource type="Texture2D" uid="uid://c0m6lbn3ty86" path="res://userAcct.png" id="1_wuj4b"]
+[ext_resource type="Texture2D" uid="uid://dmmfw173ri1jn" path="res://questionmark.png" id="2_l43uf"]
+[ext_resource type="PackedScene" uid="uid://dryytyd7npp7v" path="res://GUIRow/ProductInventoryEntry.tscn" id="3_5dcph"]
+[ext_resource type="PackedScene" uid="uid://drb8a5rdo85jp" path="res://GUIRow/MaterialEntry.tscn" id="5_wdwt8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ct0a"]
+bg_color = Color(0.631373, 0.631373, 0.631373, 1)
+
+[node name="MainEmployeeInterface" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Button" type="Button" parent="VBoxContainer3"]
+layout_mode = 2
+text = "Logout"
+
+[node name="Button2" type="TextureButton" parent="VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("1_wuj4b")
+
+[node name="Label" type="Label" parent="VBoxContainer3"]
+layout_mode = 2
+text = "Account"
+horizontal_alignment = 1
+
+[node name="Button3" type="TextureButton" parent="VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("2_l43uf")
+
+[node name="Label2" type="Label" parent="VBoxContainer3"]
+layout_mode = 2
+text = "Help"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Employee"
+horizontal_alignment = 1
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+tab_alignment = 1
+
+[node name="Orders" type="TabBar" parent="VBoxContainer/TabContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/TabContainer/Orders"]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_0ct0a")
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 2
+
+[node name="RowContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Orders/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ProductEntry" parent="VBoxContainer/TabContainer/Orders/ScrollContainer/RowContainer" instance=ExtResource("3_5dcph")]
+layout_mode = 2
+
+[node name="Products" type="TabBar" parent="VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/TabContainer/Products"]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_0ct0a")
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 2
+
+[node name="RowContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Products/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ProductEntry" parent="VBoxContainer/TabContainer/Products/ScrollContainer/RowContainer" instance=ExtResource("3_5dcph")]
+layout_mode = 2
+
+[node name="Materials" type="TabBar" parent="VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/TabContainer/Materials"]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_0ct0a")
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 2
+
+[node name="RowContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Materials/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ProductEntry" parent="VBoxContainer/TabContainer/Materials/ScrollContainer/RowContainer" instance=ExtResource("5_wdwt8")]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Label" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+text = "Schedule"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer2"]
+layout_direction = 2
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_0ct0a")
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 2
+
+[node name="RowContainer" type="VBoxContainer" parent="VBoxContainer2/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ProductEntry" parent="VBoxContainer2/ScrollContainer/RowContainer" instance=ExtResource("5_wdwt8")]
+layout_mode = 2
