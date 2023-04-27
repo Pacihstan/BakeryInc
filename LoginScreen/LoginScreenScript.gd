@@ -46,6 +46,14 @@ func signUpButtonPressed():
 	add_child(signUpControl)
 	
 func signUpCompleted():
+	var newCustNum = 0
+	print(signUpControl.get_node("NameEntry").text)
+	database_interface_ref.handleQuery("SELECT COUNT(*)
+FROM CUSTOMER")
+	newCustNum = get_parent().currentData[0][0]
+	database_interface_ref.handleNonQuery(str("INSERT INTO CUSTOMER
+VALUES (", newCustNum, " ,'", signUpControl.get_node("NameEntry").text, "', '", signUpControl.get_node("PhoneEntry").text, "', '", signUpControl.get_node("AddressEntry").text,"', '", signUpControl.get_node("PasswordEntry").text, "')
+"))
 	remove_child(signUpControl)
 	MainLoginControlInstance = load("res://LoginScreen/LoginScreenControl.tscn").instantiate()
 	add_child(MainLoginControlInstance)
