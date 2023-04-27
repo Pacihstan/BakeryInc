@@ -25,7 +25,19 @@ func _process(delta):
 
 func _on_search_bar_text_submitted(new_text):
 	if new_text == "":
-		print("empty")
+		#clear current rows for new searched row
+		for rowEntry in $MainScrollVBoxContainer/ScrollContainer/RowContainer.get_children():
+			$MainScrollVBoxContainer/ScrollContainer/RowContainer.remove_child(rowEntry)
+		database_interface_ref.handleQuery("SELECT B.ProductID, ProductName, Quantity, Cost
+		FROM   [BAKED PRODUCT] AS B JOIN [PRODUCT INVENTORY] AS I
+					   ON B.ProductID = I.ProductID")
+		var newProductRowResource = load("res://GUIRow/ProductEntry.tscn")
+		for row in get_parent().currentData:
+			var newProductRow = newProductRowResource.instantiate()
+			newProductRow.get_node("ProductEntry/Label").text = row[1] + " ($" + row[3] + ")"
+			newProductRow.set_meta("productId", row[0])
+			newProductRow.set_meta("price", row[3])
+			$MainScrollVBoxContainer/ScrollContainer/RowContainer.add_child(newProductRow)
 	elif new_text.is_valid_int():
 		database_interface_ref.handleQuery(str("SELECT B.ProductID, ProductName, Quantity, Cost
 		FROM   [BAKED PRODUCT] AS B JOIN [PRODUCT INVENTORY] AS I
