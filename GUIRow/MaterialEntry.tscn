@@ -1,9 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://drb8a5rdo85jp"]
+[gd_scene load_steps=2 format=3 uid="uid://drb8a5rdo85jp"]
 
-[ext_resource type="Texture2D" uid="uid://dkfru23gefj7l" path="res://userAcct.png" id="1_sb425"]
-[ext_resource type="Texture2D" uid="uid://dwnoxln3uqoi1" path="res://cart.png" id="2_rscbv"]
+[ext_resource type="Texture2D" uid="uid://c1g40dww4pg0m" path="res://userAcct.png" id="1_sb425"]
 
-[node name="ProductEntry" type="HBoxContainer"]
+[node name="MaterialEntry" type="HBoxContainer"]
 offset_right = 566.0
 offset_bottom = 50.0
 size_flags_horizontal = 3
@@ -18,13 +17,9 @@ layout_mode = 2
 size_flags_horizontal = 6
 text = "productName"
 
-[node name="SpinBox" type="SpinBox" parent="."]
+[node name="SpinBox2" type="SpinBox" parent="."]
 layout_mode = 2
 size_flags_horizontal = 10
 min_value = 1.0
 value = 1.0
-
-[node name="TextureButton" type="TextureButton" parent="."]
-layout_mode = 2
-size_flags_horizontal = 8
-texture_normal = ExtResource("2_rscbv")
+allow_greater = true

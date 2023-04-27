@@ -1,4 +1,5 @@
 extends HBoxContainer
+
 @onready var database_interface_ref = get_parent().get_node("database_interface")
 
 
@@ -11,7 +12,7 @@ FROM   [BAKED PRODUCT] AS B JOIN [PRODUCT INVENTORY] AS I
 	var newProductRowResource = load("res://GUIRow/ProductEntry.tscn")
 	for row in get_parent().currentData:
 		var newProductRow = newProductRowResource.instantiate()
-		newProductRow.get_node("ProductEntry/Label").text = row[1]
+		newProductRow.get_node("ProductEntry/Label").text = row[1] + " ($" + row[3] + ")"
 		newProductRow.set_meta("productId", row[0])
 		newProductRow.set_meta("price", row[3])
 		$MainScrollVBoxContainer/ScrollContainer/RowContainer.add_child(newProductRow)
@@ -58,11 +59,13 @@ func AddToCartPushed(itemBeingAdded):
 		if productRow.get_node("VBoxContainer/Label").text == itemBeingAdded.get_node("ProductEntry/Label").text:
 			productRow.get_node("VBoxContainer/HBoxContainer/SpinBox").value += itemBeingAdded.get_node("ProductEntry/SpinBox").value
 			productRow.set_meta("price", itemBeingAdded.get_meta("price"))
+			productRow.set_meta("productId", itemBeingAdded.get_meta("productId"))
 			isFound = true
 	if !isFound:
 		newCartProduct.get_node("VBoxContainer/Label").text = itemBeingAdded.get_node("ProductEntry/Label").text
 		newCartProduct.get_node("VBoxContainer/HBoxContainer/SpinBox").value += itemBeingAdded.get_node("ProductEntry/SpinBox").value
 		newCartProduct.set_meta("price", itemBeingAdded.get_meta("price"))
+		newCartProduct.set_meta("productId", itemBeingAdded.get_meta("productId"))
 		get_node("/root/Main/MainCustomerExperience/VBoxContainer4/ScrollContainer/VBoxContainer").add_child(newCartProduct)
 	#come back
 	$VBoxContainer4/TotalContainer/TotalPrice.value = 0
@@ -77,8 +80,26 @@ func removeFromCartPushed(rowToRemove):
 		#productRow.set_meta("price", 0)
 		$VBoxContainer4/TotalContainer/TotalPrice.value += int(productRow.get_node("VBoxContainer/HBoxContainer/SpinBox").value) * int(productRow.get_meta("price"))
 
+# when the checkout button is pressed
 func _on_checkout_button_pressed():
-	pass # Replace with function body.
+	# get the current number of orders
+	database_interface_ref.handleQuery("SELECT COUNT(*) FROM [ORDER]")
+	var orderID = int((get_parent().currentData[0][0])) + 1
+	print("orderID is ", orderID)
+	
+	# insert row into ORDER table
+	database_interface_ref.handleNonQuery(str("INSERT INTO [ORDER]
+	VALUES ( '", orderID,  "','" , get_parent().currentUser, "','", 
+	Time.get_date_string_from_system(), "','", str($VBoxContainer4/TotalContainer/TotalPrice.value),
+	"')"))
+	
+	# for each item in the cart, insert a record into ORDER ITEM
+	for product in $VBoxContainer4/ScrollContainer/VBoxContainer.get_children():
+		database_interface_ref.handleNonQuery(str("INSERT INTO [ORDER ITEM] 
+		VALUES (", int(orderID), ",", int(product.get_meta("productId")), ",",
+		int(product.get_node("VBoxContainer/HBoxContainer/SpinBox").value), ")"))
+		
+	
 
 
 func _on_account_button_pressed():
@@ -92,3 +113,10 @@ func _on_account_button_pressed():
 	newAccountWindow.get_node("VBoxContainer/Address").text = get_parent().currentData[0][3]
 	
 	add_child(newAccountWindow)
+
+
+# FIXME: Log out button is not working
+func _on_button_toggled(button_pressed):
+	get_tree().change_scene_to_file("res://LoginScreen/LoginScreen.tscn")
+	self.queue_free()
+	

@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dagiom66lmkhv"]
+[gd_scene load_steps=3 format=3 uid="uid://dagiom66lmkhv"]
 
-[ext_resource type="StyleBox" uid="uid://xbiatk8xrilb" path="res://GUIRow/RowEntry.tres" id="1_p4yn4"]
+[ext_resource type="StyleBox" path="res://GUIRow/RowEntry.tres" id="1_p4yn4"]
 [ext_resource type="Texture2D" uid="uid://bcfb3votr5ebg" path="res://Icons/orderIcon.png" id="1_pugjk"]
-[ext_resource type="Texture2D" uid="uid://bxu0vduf3g3fc" path="res://cart.png" id="2_kgii5"]
 
 [node name="Panel" type="Panel"]
 custom_minimum_size = Vector2(0, 100)
@@ -44,15 +43,29 @@ layout_mode = 2
 size_flags_horizontal = 6
 text = "productName"
 
+[node name="Label2" type="Label" parent="VBoxContainer/ProductEntry"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "productName"
+
+[node name="Label3" type="Label" parent="VBoxContainer/ProductEntry"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "productName"
+
+[node name="Label4" type="Label" parent="VBoxContainer/ProductEntry"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "productName"
+
+[node name="Label5" type="Label" parent="VBoxContainer/ProductEntry"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "productName"
+
 [node name="SpinBox" type="SpinBox" parent="VBoxContainer/ProductEntry"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 4
 min_value = 1.0
 value = 1.0
-
-[node name="TextureButton" type="TextureButton" parent="VBoxContainer/ProductEntry"]
-layout_mode = 2
-size_flags_horizontal = 8
-texture_normal = ExtResource("2_kgii5")
-stretch_mode = 3
