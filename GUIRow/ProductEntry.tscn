@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://djx7e0321ntr5"]
 
-[ext_resource type="StyleBox" path="res://GUIRow/RowEntry.tres" id="1_cj6u2"]
+[ext_resource type="StyleBox" uid="uid://xbiatk8xrilb" path="res://GUIRow/RowEntry.tres" id="1_cj6u2"]
 [ext_resource type="Texture2D" uid="uid://eb0ahghta6bo" path="res://Icons/breadIcon.png" id="1_lu2rj"]
 [ext_resource type="Script" path="res://GUIRow/ProductEntry.gd" id="2_atgxd"]
 [ext_resource type="Texture2D" uid="uid://d050di6kbkvlf" path="res://Icons/add-to-carticon.png" id="2_kkqqt"]
@@ -9,7 +9,7 @@
 [sub_resource type="Theme" id="Theme_c3cow"]
 HBoxContainer/constants/separation = 4
 
-[node name="Panel" type="Panel"]
+[node name="Panel2" type="Panel"]
 custom_minimum_size = Vector2(0, 70)
 offset_bottom = 70.0
 grow_horizontal = 2

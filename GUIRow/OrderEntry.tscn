@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dagiom66lmkhv"]
 
-[ext_resource type="StyleBox" path="res://GUIRow/RowEntry.tres" id="1_p4yn4"]
+[ext_resource type="StyleBox" uid="uid://xbiatk8xrilb" path="res://GUIRow/RowEntry.tres" id="1_p4yn4"]
 [ext_resource type="Texture2D" uid="uid://bcfb3votr5ebg" path="res://Icons/orderIcon.png" id="1_pugjk"]
 
 [node name="Panel" type="Panel"]

@@ -117,6 +117,6 @@ func _on_account_button_pressed():
 
 # FIXME: Log out button is not working
 func _on_button_toggled(button_pressed):
-	get_tree().change_scene_to_file("res://LoginScreen/LoginScreen.tscn")
+	get_parent().logoutButtonPressed()
 	self.queue_free()
 	
