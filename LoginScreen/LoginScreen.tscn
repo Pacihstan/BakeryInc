@@ -8,12 +8,12 @@ border_width_left = 10
 border_width_top = 10
 border_width_right = 10
 border_width_bottom = 10
-border_color = Color(0, 0.54902, 0.501961, 1)
+border_color = Color(1, 0.866667, 0.466667, 1)
 
 [node name="LoginScreenRoot" type="Window"]
 transparent_bg = true
 title = "Login"
-size = Vector2i(450, 300)
+size = Vector2i(450, 400)
 wrap_controls = true
 transient = true
 exclusive = true

@@ -1,18 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://cn5ykrpaafi1b"]
+[gd_scene load_steps=4 format=3 uid="uid://cn5ykrpaafi1b"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ema31"]
 [ext_resource type="PackedScene" uid="uid://x8bfyvsurcja" path="res://database_interface.tscn" id="2_ceys2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tqkhi"]
+bg_color = Color(0.34902, 0.686275, 0.443137, 1)
+corner_detail = 5
+expand_margin_right = 9.0
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ema31")
 
 [node name="TextEdit" type="TextEdit" parent="."]
-visible = false
-offset_left = 247.0
-offset_top = 212.0
-offset_right = 735.0
-offset_bottom = 631.0
+top_level = true
+offset_left = 336.0
+offset_top = 195.0
+offset_right = 824.0
+offset_bottom = 614.0
 text = "test"
 wrap_mode = 1
 
 [node name="database_interface" parent="." instance=ExtResource("2_ceys2")]
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(0, 70)
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_tqkhi")
+metadata/productId = 0

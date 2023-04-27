@@ -21,6 +21,7 @@ func _process(delta):
 
 
 func onLoginButtonPressed():
+	print(database_interface_ref)
 	database_interface_ref.handleQuery("SELECT * FROM EMPLOYEE")
 	for row in root_ref.currentData:
 		if MainLoginControlInstance.get_node("UsernameEntry").text == row[1]: #if login successful
@@ -31,7 +32,6 @@ func onLoginButtonPressed():
 			self.queue_free() #allow user to continue to application
 
 	database_interface_ref.handleQuery("SELECT * FROM CUSTOMER")
-	print(root_ref.currentData)
 	for row in root_ref.currentData:
 		if MainLoginControlInstance.get_node("UsernameEntry").text == row[1]: #if login successful
 			userType = "Customer"
@@ -43,7 +43,6 @@ func signUpButtonPressed():
 	add_child(signUpControl)
 	
 func signUpCompleted():
-	print("signup complete...")
 	remove_child(signUpControl)
 	MainLoginControlInstance = load("res://LoginScreen/LoginScreenControl.tscn").instantiate()
 	add_child(MainLoginControlInstance)

@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://dfyaci53qpdsj"]
+[gd_scene load_steps=9 format=3 uid="uid://dfyaci53qpdsj"]
 
+[ext_resource type="Script" path="res://CustomerInterface/MainCustomerInterface.gd" id="1_0bf67"]
 [ext_resource type="Texture2D" uid="uid://bayhrhj6r5mv6" path="res://Icons/userIcon.png" id="1_pjv4r"]
 [ext_resource type="Texture2D" uid="uid://b5rb3ajdbq4k1" path="res://Icons/userIconpressed.png" id="2_b6wnx"]
 [ext_resource type="Texture2D" uid="uid://b5m1aka2tmlgj" path="res://Icons/shopping-carticon.png" id="3_162in"]
@@ -25,6 +26,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 50
+script = ExtResource("1_0bf67")
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="."]
 layout_mode = 2

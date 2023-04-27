@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dryytyd7npp7v"]
 
-[ext_resource type="Texture2D" uid="uid://dkfru23gefj7l" path="res://userAcct.png" id="1_khljn"]
-[ext_resource type="Texture2D" uid="uid://b55hwr5vsystf" path="res://GUIRow/recipie.png" id="2_5oovm"]
-[ext_resource type="Texture2D" uid="uid://cks4lgxn4c43c" path="res://GUIRow/recipieClick.png" id="3_f368g"]
+[ext_resource type="Texture2D" uid="uid://d01r37a88pfvn" path="res://userAcct.png" id="1_khljn"]
+[ext_resource type="Texture2D" uid="uid://b1p0kxytoxxmf" path="res://GUIRow/recipie.png" id="2_5oovm"]
+[ext_resource type="Texture2D" uid="uid://7m0c2gei8jao" path="res://GUIRow/recipieClick.png" id="3_f368g"]
 
 [node name="ProductEntry" type="HBoxContainer"]
 offset_right = 566.0

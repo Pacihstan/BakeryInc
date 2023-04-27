@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bc320j0wo0wyn"]
+[gd_scene load_steps=3 format=3 uid="uid://bc320j0wo0wyn"]
 
 [ext_resource type="Script" path="res://LoginScreen/LoginScreenControl.gd" id="1_2qf5p"]
+[ext_resource type="Texture2D" uid="uid://cwsgbp5ephyuy" path="res://Icons/bakeryicon.png" id="2_n6es7"]
 
 [node name="VBoxContainer" type="VBoxContainer"]
 anchors_preset = 8
@@ -25,6 +26,12 @@ text = "
 Welcome to BAKERY INC."
 horizontal_alignment = 1
 text_direction = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_n6es7")
+stretch_mode = 3
+metadata/Source = "<a href=\"https://www.flaticon.com/free-icons/bakery\" title=\"bakery icons\">Bakery icons created by Freepik - Flaticon</a>"
 
 [node name="UsernameEntry" type="LineEdit" parent="."]
 custom_minimum_size = Vector2(150, 0)
@@ -54,7 +61,6 @@ text = "Login"
 
 [node name="PanelSpacer" type="PanelContainer" parent="."]
 self_modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
 [node name="NoAccountQuestion" type="Label" parent="."]

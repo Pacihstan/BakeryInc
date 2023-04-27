@@ -1,33 +1,58 @@
-[gd_scene load_steps=3 format=3 uid="uid://dagiom66lmkhv"]
+[gd_scene load_steps=4 format=3 uid="uid://dagiom66lmkhv"]
 
-[ext_resource type="Texture2D" uid="uid://dkfru23gefj7l" path="res://userAcct.png" id="1_ls2v7"]
-[ext_resource type="Texture2D" uid="uid://dwnoxln3uqoi1" path="res://cart.png" id="2_kgii5"]
+[ext_resource type="StyleBox" uid="uid://xbiatk8xrilb" path="res://GUIRow/RowEntry.tres" id="1_p4yn4"]
+[ext_resource type="Texture2D" uid="uid://bcfb3votr5ebg" path="res://Icons/orderIcon.png" id="1_pugjk"]
+[ext_resource type="Texture2D" uid="uid://bxu0vduf3g3fc" path="res://cart.png" id="2_kgii5"]
 
-[node name="ProductEntry" type="HBoxContainer"]
+[node name="Panel" type="Panel"]
 custom_minimum_size = Vector2(0, 100)
-offset_right = 566.0
-offset_bottom = 50.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("1_p4yn4")
+metadata/productId = 0
 
-[node name="Sprite2D" type="TextureRect" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProductEntry" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Sprite2D" type="TextureRect" parent="VBoxContainer/ProductEntry"]
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 2
-texture = ExtResource("1_ls2v7")
+texture = ExtResource("1_pugjk")
 expand_mode = 2
+stretch_mode = 3
+metadata/Source = "<a href=\"https://www.flaticon.com/free-icons/list\" title=\"list icons\">List icons created by Kiranshastry - Flaticon</a>"
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="VBoxContainer/ProductEntry"]
 layout_mode = 2
 size_flags_horizontal = 6
 text = "productName"
 
-[node name="SpinBox" type="SpinBox" parent="."]
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/ProductEntry"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 4
 min_value = 1.0
 value = 1.0
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/ProductEntry"]
 layout_mode = 2
 size_flags_horizontal = 8
 texture_normal = ExtResource("2_kgii5")
+stretch_mode = 3

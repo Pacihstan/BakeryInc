@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://yqg24nqiiap2"]
+[gd_scene load_steps=3 format=3 uid="uid://yqg24nqiiap2"]
 
 [ext_resource type="Script" path="res://LoginScreen/SignUpControl.gd" id="1_rxgty"]
+[ext_resource type="Texture2D" uid="uid://bayhrhj6r5mv6" path="res://Icons/userIcon.png" id="2_cd460"]
 
 [node name="VBoxContainer" type="VBoxContainer"]
 anchors_preset = 8
@@ -25,6 +26,11 @@ text = "
 Sign Up"
 horizontal_alignment = 1
 text_direction = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_cd460")
+stretch_mode = 3
 
 [node name="NameEntry" type="LineEdit" parent="."]
 custom_minimum_size = Vector2(150, 0)
