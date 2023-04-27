@@ -13,6 +13,7 @@ FROM   [BAKED PRODUCT] AS B JOIN [PRODUCT INVENTORY] AS I
 		var newProductRow = newProductRowResource.instantiate()
 		newProductRow.get_node("ProductEntry/Label").text = row[1]
 		newProductRow.set_meta("productId", row[0])
+		newProductRow.set_meta("price", row[3])
 		$MainScrollVBoxContainer/ScrollContainer/RowContainer.add_child(newProductRow)
 
 
@@ -34,6 +35,7 @@ func _on_search_bar_text_submitted(new_text):
 		var newProductRow = load("res://GUIRow/ProductEntry.tscn").instantiate()
 		newProductRow.get_node("ProductEntry/Label").text = get_parent().currentData[0][1]
 		newProductRow.set_meta("productId", get_parent().currentData[0][0]) 
+		newProductRow.set_meta("price", get_parent().currentData[0][3])
 		$MainScrollVBoxContainer/ScrollContainer/RowContainer.add_child(newProductRow)
 		
 	else:
@@ -45,6 +47,7 @@ func _on_search_bar_text_submitted(new_text):
 		var newProductRow = load("res://GUIRow/ProductEntry.tscn").instantiate()
 		newProductRow.get_node("ProductEntry/Label").text = get_parent().currentData[0][1]
 		newProductRow.set_meta("productId", get_parent().currentData[0][0]) 
+		newProductRow.set_meta("price", get_parent().currentData[0][3])
 		$MainScrollVBoxContainer/ScrollContainer/RowContainer.add_child(newProductRow)
 		
 		
@@ -54,14 +57,38 @@ func AddToCartPushed(itemBeingAdded):
 	for productRow in $VBoxContainer4/ScrollContainer/VBoxContainer.get_children():
 		if productRow.get_node("VBoxContainer/Label").text == itemBeingAdded.get_node("ProductEntry/Label").text:
 			productRow.get_node("VBoxContainer/HBoxContainer/SpinBox").value += itemBeingAdded.get_node("ProductEntry/SpinBox").value
+			productRow.set_meta("price", itemBeingAdded.get_meta("price"))
 			isFound = true
 	if !isFound:
 		newCartProduct.get_node("VBoxContainer/Label").text = itemBeingAdded.get_node("ProductEntry/Label").text
 		newCartProduct.get_node("VBoxContainer/HBoxContainer/SpinBox").value += itemBeingAdded.get_node("ProductEntry/SpinBox").value
+		newCartProduct.set_meta("price", itemBeingAdded.get_meta("price"))
 		get_node("/root/Main/MainCustomerExperience/VBoxContainer4/ScrollContainer/VBoxContainer").add_child(newCartProduct)
-	
+	#come back
+	$VBoxContainer4/TotalContainer/TotalPrice.value = 0
+	for productRow in $VBoxContainer4/ScrollContainer/VBoxContainer.get_children():
+		#productRow.set_meta("price", 0)
+		$VBoxContainer4/TotalContainer/TotalPrice.value += int(productRow.get_node("VBoxContainer/HBoxContainer/SpinBox").value) * int(productRow.get_meta("price"))
 		
-
+func removeFromCartPushed(rowToRemove):
+	$VBoxContainer4/ScrollContainer/VBoxContainer.remove_child(rowToRemove)
+	$VBoxContainer4/TotalContainer/TotalPrice.value = 0
+	for productRow in $VBoxContainer4/ScrollContainer/VBoxContainer.get_children():
+		#productRow.set_meta("price", 0)
+		$VBoxContainer4/TotalContainer/TotalPrice.value += int(productRow.get_node("VBoxContainer/HBoxContainer/SpinBox").value) * int(productRow.get_meta("price"))
 
 func _on_checkout_button_pressed():
 	pass # Replace with function body.
+
+
+func _on_account_button_pressed():
+	var newAccountWindow = load("res://CustomerInterface/AccountScreen.tscn").instantiate()
+	newAccountWindow.position = get_viewport_rect().size / 2 - (Vector2(newAccountWindow.size) / 2)
+	database_interface_ref.handleQuery(str("SELECT CustomerNumber, CustomerName, CustomerPhoneNum, CustomerAddress FROM CUSTOMER WHERE CustomerNumber = ", get_parent().currentUser))
+	
+	newAccountWindow.get_node("VBoxContainer/ID").text = get_parent().currentData[0][0]
+	newAccountWindow.get_node("VBoxContainer/Name").text = get_parent().currentData[0][1]
+	newAccountWindow.get_node("VBoxContainer/PhoneNumber").text = get_parent().currentData[0][2]
+	newAccountWindow.get_node("VBoxContainer/Address").text = get_parent().currentData[0][3]
+	
+	add_child(newAccountWindow)

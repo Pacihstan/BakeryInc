@@ -1,7 +1,7 @@
 extends Node2D
 var currentData
 var currentUser
-
+var userType
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$database_interface.configureConnection("Data Source=SILVER;Initial Catalog=Bakery Database;Integrated Security=True;TrustServerCertificate=True")

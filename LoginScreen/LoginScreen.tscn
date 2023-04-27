@@ -1,14 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dewduv03r87p6"]
 
 [ext_resource type="Script" path="res://LoginScreen/LoginScreenScript.gd" id="1_ixn22"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_60omt"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(1, 0.866667, 0.466667, 1)
+[ext_resource type="StyleBox" uid="uid://dbrn76sx7dypm" path="res://CustomerInterface/Account.tres" id="1_mtciv"]
 
 [node name="LoginScreenRoot" type="Window"]
 transparent_bg = true
@@ -19,7 +12,7 @@ transient = true
 exclusive = true
 unresizable = true
 always_on_top = true
-theme_override_styles/embedded_border = SubResource("StyleBoxFlat_60omt")
+theme_override_styles/embedded_border = ExtResource("1_mtciv")
 script = ExtResource("1_ixn22")
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]

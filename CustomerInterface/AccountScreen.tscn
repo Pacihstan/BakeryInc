@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://daycorxuv30lh"]
+
+[ext_resource type="Script" path="res://CustomerInterface/AccountScreen.gd" id="1_rxedq"]
+
+[node name="Window" type="Window"]
+title = "Account"
+size = Vector2i(450, 300)
+wrap_controls = true
+transient = true
+exclusive = true
+unresizable = true
+popup_window = true
+script = ExtResource("1_rxedq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ID" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Placeholder"
+horizontal_alignment = 1
+
+[node name="Name" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Placeholder"
+horizontal_alignment = 1
+
+[node name="PhoneNumber" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Placeholder"
+horizontal_alignment = 1
+
+[node name="Address" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Placeholder"
+horizontal_alignment = 1
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]

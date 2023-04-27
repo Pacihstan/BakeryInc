@@ -28,12 +28,16 @@ func onLoginButtonPressed():
 				userType = "Employee"
 			elif row[4] == "True":
 				userType = "Manager"
+			root_ref.currentUser = row[0]
+			root_ref.userType = userType
 			self.queue_free() #allow user to continue to application
 
 	database_interface_ref.handleQuery("SELECT * FROM CUSTOMER")
 	for row in root_ref.currentData:
 		if MainLoginControlInstance.get_node("UsernameEntry").text == row[1]: #if login successful
 			userType = "Customer"
+			root_ref.currentUser = row[0]
+			root_ref.userType = userType
 			self.queue_free() #allow user to continue to application
 	
 func signUpButtonPressed():

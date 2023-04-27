@@ -34,7 +34,7 @@ size_flags_horizontal = 0
 layout_mode = 2
 text = "Logout"
 
-[node name="Button2" type="TextureButton" parent="VBoxContainer3"]
+[node name="AccountButton" type="TextureButton" parent="VBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -99,9 +99,22 @@ vertical_scroll_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="TotalContainer" type="HBoxContainer" parent="VBoxContainer4"]
+layout_mode = 2
+
+[node name="Total" type="Label" parent="VBoxContainer4/TotalContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Total: "
+
+[node name="TotalPrice" type="SpinBox" parent="VBoxContainer4/TotalContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+
 [node name="CheckoutButton" type="Button" parent="VBoxContainer4"]
 layout_mode = 2
 text = "Order"
 
+[connection signal="pressed" from="VBoxContainer3/AccountButton" to="." method="_on_account_button_pressed"]
 [connection signal="text_submitted" from="MainScrollVBoxContainer/SearchBar" to="." method="_on_search_bar_text_submitted"]
 [connection signal="pressed" from="VBoxContainer4/CheckoutButton" to="." method="_on_checkout_button_pressed"]
