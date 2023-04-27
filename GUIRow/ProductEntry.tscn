@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://djx7e0321ntr5"]
 
-[ext_resource type="Texture2D" uid="uid://dkfru23gefj7l" path="res://userAcct.png" id="1_jppo8"]
-[ext_resource type="Texture2D" uid="uid://dwnoxln3uqoi1" path="res://cart.png" id="2_siw03"]
+[ext_resource type="Texture2D" uid="uid://c0m6lbn3ty86" path="res://userAcct.png" id="1_jppo8"]
+[ext_resource type="Texture2D" uid="uid://c015cyyqjf731" path="res://cart.png" id="2_siw03"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q3hwt"]
 bg_color = Color(0.34902, 0.686275, 0.443137, 1)

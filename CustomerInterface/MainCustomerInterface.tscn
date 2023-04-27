@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://dfyaci53qpdsj"]
 
-[ext_resource type="Texture2D" uid="uid://dkfru23gefj7l" path="res://userAcct.png" id="1_kk6bq"]
-[ext_resource type="Texture2D" uid="uid://di1kg0g1xray8" path="res://questionmark.png" id="2_b3qsy"]
+[ext_resource type="Texture2D" uid="uid://c0m6lbn3ty86" path="res://userAcct.png" id="1_kk6bq"]
+[ext_resource type="Texture2D" uid="uid://dmmfw173ri1jn" path="res://questionmark.png" id="2_b3qsy"]
 [ext_resource type="StyleBox" uid="uid://cyh4o6vohfbgj" path="res://CustomerInterface/MainCustomerExperience.tres" id="3_b5a8d"]
 [ext_resource type="PackedScene" uid="uid://djx7e0321ntr5" path="res://GUIRow/ProductEntry.tscn" id="3_ehnk6"]
-[ext_resource type="Texture2D" uid="uid://dwnoxln3uqoi1" path="res://cart.png" id="3_t25kg"]
+[ext_resource type="Texture2D" uid="uid://c015cyyqjf731" path="res://cart.png" id="3_t25kg"]
 [ext_resource type="PackedScene" uid="uid://dlahi4m282sla" path="res://GUIRow/CartProductEntry.tscn" id="5_rahi6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ju2e0"]
