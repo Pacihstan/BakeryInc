@@ -61,6 +61,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 placeholder_text = "Password"
 alignment = 1
+secret = true
 caret_blink = true
 caret_blink_interval = 0.5
 
