@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dfyaci53qpdsj"]
+[gd_scene load_steps=8 format=3 uid="uid://dfyaci53qpdsj"]
 
 [ext_resource type="Script" path="res://CustomerInterface/MainCustomerInterface.gd" id="1_0bf67"]
 [ext_resource type="Texture2D" uid="uid://bayhrhj6r5mv6" path="res://Icons/userIcon.png" id="1_pjv4r"]
 [ext_resource type="Texture2D" uid="uid://b5rb3ajdbq4k1" path="res://Icons/userIconpressed.png" id="2_b6wnx"]
 [ext_resource type="Texture2D" uid="uid://b5m1aka2tmlgj" path="res://Icons/shopping-carticon.png" id="3_162in"]
 [ext_resource type="StyleBox" uid="uid://cyh4o6vohfbgj" path="res://CustomerInterface/MainCustomerExperience.tres" id="3_b5a8d"]
-[ext_resource type="PackedScene" uid="uid://djx7e0321ntr5" path="res://GUIRow/ProductEntry.tscn" id="3_ehnk6"]
 [ext_resource type="PackedScene" uid="uid://dlahi4m282sla" path="res://GUIRow/CartProductEntry.tscn" id="5_rahi6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ju2e0"]
@@ -49,22 +48,22 @@ layout_mode = 2
 text = "Account"
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MainScrollVBoxContainer" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(750, 700)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 0
 
-[node name="MainLabel" type="Label" parent="VBoxContainer"]
+[node name="MainLabel" type="Label" parent="MainScrollVBoxContainer"]
 layout_mode = 2
 text = "Customer"
 horizontal_alignment = 1
 
-[node name="SearchBar" type="LineEdit" parent="VBoxContainer"]
+[node name="SearchBar" type="LineEdit" parent="MainScrollVBoxContainer"]
 layout_mode = 2
 placeholder_text = "Search for product"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MainScrollVBoxContainer"]
 custom_minimum_size = Vector2(500, 500)
 layout_direction = 2
 layout_mode = 2
@@ -73,12 +72,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ju2e0")
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 2
 
-[node name="RowContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+[node name="RowContainer" type="VBoxContainer" parent="MainScrollVBoxContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="Panel" parent="VBoxContainer/ScrollContainer/RowContainer" instance=ExtResource("3_ehnk6")]
-layout_mode = 2
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="."]
 layout_mode = 2
