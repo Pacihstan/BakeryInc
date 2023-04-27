@@ -16,14 +16,17 @@ func _process(delta):
 
 
 func _on_login_button_pressed():
-	"""
+
 	database_interface_ref.handleQuery("SELECT * FROM EMPLOYEE")
 	print(root_ref.currentData)
 	for row in root_ref.currentData:
 		if $VBoxContainer/UsernameEntry.text == row[1]: #if login successful
-			userType = str(row[4]).replace(" ", "")
+			if row[4] == "False":
+				userType = "Employee"
+			elif row[4] == "True":
+				userType = "Manager"
 			self.queue_free() #allow user to continue to application
-	"""
+
 	database_interface_ref.handleQuery("SELECT * FROM CUSTOMER")
 	print(root_ref.currentData)
 	for row in root_ref.currentData:
