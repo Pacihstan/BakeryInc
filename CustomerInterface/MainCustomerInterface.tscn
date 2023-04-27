@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dfyaci53qpdsj"]
+[gd_scene load_steps=7 format=3 uid="uid://dfyaci53qpdsj"]
 
 [ext_resource type="Script" path="res://CustomerInterface/MainCustomerInterface.gd" id="1_0bf67"]
 [ext_resource type="Texture2D" uid="uid://bayhrhj6r5mv6" path="res://Icons/userIcon.png" id="1_pjv4r"]
 [ext_resource type="Texture2D" uid="uid://b5rb3ajdbq4k1" path="res://Icons/userIconpressed.png" id="2_b6wnx"]
 [ext_resource type="Texture2D" uid="uid://b5m1aka2tmlgj" path="res://Icons/shopping-carticon.png" id="3_162in"]
 [ext_resource type="StyleBox" uid="uid://cyh4o6vohfbgj" path="res://CustomerInterface/MainCustomerExperience.tres" id="3_b5a8d"]
-[ext_resource type="PackedScene" uid="uid://dlahi4m282sla" path="res://GUIRow/CartProductEntry.tscn" id="5_rahi6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ju2e0"]
 border_width_left = 10
@@ -100,9 +99,9 @@ vertical_scroll_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainer" parent="VBoxContainer4/ScrollContainer/VBoxContainer" instance=ExtResource("5_rahi6")]
-layout_mode = 2
-
 [node name="CheckoutButton" type="Button" parent="VBoxContainer4"]
 layout_mode = 2
 text = "Order"
+
+[connection signal="text_submitted" from="MainScrollVBoxContainer/SearchBar" to="." method="_on_search_bar_text_submitted"]
+[connection signal="pressed" from="VBoxContainer4/CheckoutButton" to="." method="_on_checkout_button_pressed"]

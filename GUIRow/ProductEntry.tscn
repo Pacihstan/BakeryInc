@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://djx7e0321ntr5"]
+[gd_scene load_steps=7 format=3 uid="uid://djx7e0321ntr5"]
 
 [ext_resource type="StyleBox" uid="uid://xbiatk8xrilb" path="res://GUIRow/RowEntry.tres" id="1_cj6u2"]
 [ext_resource type="Texture2D" uid="uid://eb0ahghta6bo" path="res://Icons/breadIcon.png" id="1_lu2rj"]
+[ext_resource type="Script" path="res://GUIRow/ProductEntry.gd" id="2_atgxd"]
 [ext_resource type="Texture2D" uid="uid://d050di6kbkvlf" path="res://Icons/add-to-carticon.png" id="2_kkqqt"]
 [ext_resource type="Texture2D" uid="uid://do7u6o3i31un8" path="res://Icons/add-to-carticonpressed.png" id="3_fvw8x"]
 
@@ -14,6 +15,7 @@ offset_bottom = 70.0
 grow_horizontal = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = ExtResource("1_cj6u2")
+script = ExtResource("2_atgxd")
 metadata/productId = 0
 
 [node name="ProductEntry" type="HBoxContainer" parent="."]
@@ -56,3 +58,5 @@ texture_normal = ExtResource("2_kkqqt")
 texture_pressed = ExtResource("3_fvw8x")
 stretch_mode = 3
 metadata/Source = "<a href=\"https://www.flaticon.com/free-icons/add-to-cart\" title=\"add to cart icons\">Add to cart icons created by Freepik - Flaticon</a>"
+
+[connection signal="pressed" from="ProductEntry/TextureButton" to="." method="_on_texture_button_pressed"]
