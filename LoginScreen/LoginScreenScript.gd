@@ -21,7 +21,6 @@ func _process(delta):
 
 
 func onLoginButtonPressed():
-	print(database_interface_ref)
 	database_interface_ref.handleQuery("SELECT * FROM EMPLOYEE")
 	for row in root_ref.currentData:
 		if MainLoginControlInstance.get_node("UsernameEntry").text == row[1]: #if login successful

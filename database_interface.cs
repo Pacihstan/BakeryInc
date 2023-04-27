@@ -44,7 +44,7 @@ public partial class database_interface : Node
 			for (int i = 0; i < currentSqlDataReader.FieldCount; i++)
 			{
 				((Godot.Collections.Array)row).Add(currentSqlDataReader[i].ToString());
-				printingGrounds.Text += currentSqlDataReader[i].ToString();
+				//printingGrounds.Text += currentSqlDataReader[i].ToString();
 			}
 			((Godot.Collections.Array)matrix).Add(row);
 			GetTree().Root.GetNode<Node2D>("Main").Set("currentData", matrix);
