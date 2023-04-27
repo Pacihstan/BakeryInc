@@ -12,6 +12,7 @@ public partial class database_interface : Node
 	SqlDataReader currentSqlDataReader;
 	TextEdit printingGrounds;
 	
+	
 
 	public override void _Ready()
 	{
@@ -49,5 +50,19 @@ public partial class database_interface : Node
 			((Godot.Collections.Array)matrix).Add(row);
 			GetTree().Root.GetNode<Node2D>("Main").Set("currentData", matrix);
 		}
+	}
+
+
+	public void handleNonQuery(string nonQueryString)
+	{
+		conn.Close();
+		conn.Open();
+		printingGrounds.Text += nonQueryString;
+		currentSqlCommand = conn.CreateCommand();
+		currentSqlCommand.CommandText = nonQueryString;
+		//currentSqlCommand.CommandText = nonQueryString;
+		
+
+		int result = currentSqlCommand.ExecuteNonQuery();
 	}
 }

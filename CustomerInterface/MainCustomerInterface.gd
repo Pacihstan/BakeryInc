@@ -5,9 +5,10 @@ extends HBoxContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	database_interface_ref.handleQuery("INSERT INTO [CUSTOMER]
-VALUES (4, John Doe, (444) 444-4444, 444 Lane, jdoe04)")
-	print(get_parent().currentData)
+	database_interface_ref.handleQuery("SELECT B.ProductID, ProductName, Quantity, Cost
+FROM   [BAKED PRODUCT] AS B JOIN [PRODUCT INVENTORY] AS I
+					   ON B.ProductID = I.ProductID")
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
